@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         title: 'Pak Parking',
         theme: ThemeData(primarySwatch: Colors.green),
         initialRoute: SplashScreen.id, //initialRoute means the first page of your app
-
+//riyan file
         routes: {
           // In routes, you have to define the static routes name
           PaymentScreen.id: (context) =>  PaymentScreen(),
