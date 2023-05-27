@@ -38,10 +38,13 @@ class _UserParkingHistoryState extends State<UserParkingHistory> {
         centerTitle: true,
 
       ),
-      drawer: UserDrawerView(onPress: () {
-        Navigator.pushNamed(context, LoginScreen.id);
-      },
-      child: ListView(),),
+      drawer: UserDrawerView(
+        onPress: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()));
+        },
+        child: ListView(),
+      ),
 
       body: SingleChildScrollView(
         child: Padding(
