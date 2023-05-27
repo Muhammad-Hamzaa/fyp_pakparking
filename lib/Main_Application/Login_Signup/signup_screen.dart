@@ -14,6 +14,7 @@ class SignUpScreen extends StatefulWidget {
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
+
 class _SignUpScreenState extends State<SignUpScreen> {
   final auth = FirebaseAuth.instance;
   final emailCTRL = TextEditingController();
@@ -24,16 +25,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().white,
-
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w),
             child: Column(
-             children: [
+              children: [
                 const SB1(),
-                IconBackButton(onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginScreen()));
+                IconBackButton(onPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
                 }),
                 const SB(),
                 AppHeadings().logoSubHeading1,
@@ -45,25 +48,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SB2(),
                 const UserName(text: "Username"),
                 const SB1(),
-                Email(ctrl: emailCTRL,),
+                Email(
+                  ctrl: emailCTRL,
+                ),
                 const SB1(),
                 const PhoneNo(),
                 const SB1(),
-                Password(ctrl: passCTRL,),
+                Password(
+                  ctrl: passCTRL,
+                ),
                 const SB2(),
                 AppButtons(
                     text: "Sign Up",
-                    onPress:()
-                    {signUp();
-                    }
-                ),
+                    onPress: () {
+                      signUp();
+                    }),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
+                  children: [
                     AppHeadings().alreadyHaveAcc,
-                    AppHeadingButton(onPress: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginScreen()));
-                     }, text: 'Login',
+                    AppHeadingButton(
+                      onPress: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
+                      },
+                      text: 'Login',
                     )
                   ],
                 )
@@ -75,12 +86,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void signUp(){
-    auth.createUserWithEmailAndPassword(
-        email: emailCTRL.text.toString() ,
-        password: passCTRL.text.toString() ).then((value) {
-          Utils().toast("Account Created Successfully");
-          Navigator.pushNamed(context, LoginScreen.id);
+  void signUp() {
+    auth
+        .createUserWithEmailAndPassword(
+            email: emailCTRL.text.toString(),
+            password: passCTRL.text.toString())
+        .then((value) {
+      Utils().toast("Account Created Successfully");
+      Navigator.pushNamed(context, LoginScreen.id);
     }).onError((error, stackTrace) {
       Utils().toast(error.toString());
     });

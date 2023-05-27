@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../Components/constant_colors.dart';
 
 class UpdateTimings extends StatefulWidget {
+  static const String id = 'update_timings';
   const UpdateTimings({Key? key}) : super(key: key);
 
   @override

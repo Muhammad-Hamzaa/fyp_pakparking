@@ -2,9 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pak_parking/Admin/Admin_Panel_Views/add_parking_spot.dart';
+import 'package:pak_parking/Admin/Admin_Panel_Views/delete_parking_spot.dart';
+import 'package:pak_parking/Admin/Admin_Panel_Views/payment_history.dart';
+import 'package:pak_parking/Admin/Admin_Panel_Views/update_account.dart';
+import 'package:pak_parking/Admin/Admin_Panel_Views/update_timings.dart';
 import 'package:pak_parking/Components/reusable_components.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../Admin/Admin_Panel_Views/update_fees.dart';
 import '../Main_Application/Home_Screens/home_screen.dart';
 import '../Main_Application/Home_Screens/parking_history.dart';
 import '../Main_Application/Home_Screens/payment_screen.dart';
@@ -13,15 +19,15 @@ import '../User/User_Settings_Views/notifications.dart';
 import '../User/user_settings.dart';
 import 'constant_colors.dart';
 
-class DrawerView extends StatefulWidget {
+class AdminDrawerView extends StatefulWidget {
 
   final VoidCallback onPress;
- const DrawerView({Key? key, required this.onPress , required ListView child}) : super(key: key);
+  const AdminDrawerView({Key? key, required this.onPress , required ListView child}) : super(key: key);
 
   @override
-  State<DrawerView> createState() => _DrawerViewState();
+  State<AdminDrawerView> createState() => _AdminDrawerViewState();
 }
-class _DrawerViewState extends State<DrawerView> {
+class _AdminDrawerViewState extends State<AdminDrawerView> {
   @override
 
   void initState() {
@@ -41,98 +47,78 @@ class _DrawerViewState extends State<DrawerView> {
     return SafeArea(child: Drawer(
       child: ListView(
         children: [
-           UserAccountsDrawerHeader(
+          UserAccountsDrawerHeader(
             decoration: BoxDecoration(
               color: AppColors().green,
             ),
             currentAccountPicture: const CircleAvatar(
               backgroundImage: AssetImage('assets/drawer/avatar.png'),
             ),
-            accountName: const Text('Muhammad Hamza'),
-            accountEmail: Text(email.toString(), style: TextStyle(fontSize: 15.sp),),
+            accountName: const Text('Admin Panel'),
+            accountEmail: const Text("admin@pakparking.com"),
+            // accountEmail: Text(email.toString(), style: TextStyle(fontSize: 15.sp),),
           ),
           const SB2(),
           ListTile(
-            leading: const Icon(Icons.home_outlined),
+            leading: const Icon(Icons.update),
             title: Text(
-              'Home Screen',
+              'Update Account',
               style: GoogleFonts.poppins(),
             ),onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen(email: '', pass: '',)));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const UpdateAccount()));
           },
           ),
           ListTile(
-            leading: const Icon(Icons.wallet_outlined),
+            leading: const Icon(Icons.add),
             title: Text(
-              'Payment methods',
+              'Add Parking Spot',
               style: GoogleFonts.poppins(),
             ),onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> PaymentScreen()));
-          },
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const AddParkingSpot()));
+              },
           ),
           ListTile(
-            leading: const Icon(CupertinoIcons.arrow_counterclockwise),
+            leading: const Icon(CupertinoIcons.delete),
             title: Text(
-              'Parking History',
+              'Delete Parking Spot',
               style: GoogleFonts.poppins(),
             ),onTap: () {
-            Navigator.pushNamed(context, UserParkingHistory.id);
-          },
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const DeleteParkingSpot()));
+            },
           ),
           ListTile(
-            leading: const Icon(CupertinoIcons.checkmark_alt_circle),
+            leading: const Icon(CupertinoIcons.money_rubl_circle),
             title: Text(
-              'Complaint',
+              'Update Fees',
               style: GoogleFonts.poppins(),
             ),
             onTap: (){
-              Navigator.pushNamed(context, Complain.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const UpdateFees()));
             },
           ),
-          const SB3(),
+          // const SB2(),
           ListTile(
-            leading: const Icon(CupertinoIcons.info_circle),
+            leading: const Icon(CupertinoIcons.timer),
             title: Text(
-              'How it works',
+              'Update Timings',
               style: GoogleFonts.poppins(),
             ),
             onTap: () {
-              Navigator.pushNamed(context, UserSettings.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const UpdateTimings()));
             },
           ),
           ListTile(
             // leading: const Icon(CupertinoIcons.bubble_left_bubble_right),
-            leading:  const Icon(CupertinoIcons.mail_solid),
+            leading:  const Icon(CupertinoIcons.money_dollar_circle),
             title: Text(
-              'Notifications',
+              'Payment History',
               style: GoogleFonts.poppins(),
             ),
             onTap: (){
-              Navigator.pushNamed(context, Notifications.id);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const PaymentHistory()));
             },
           ),
-          ListTile(
-            // leading: const Icon(CupertinoIcons.bubble_left_bubble_right),
-            leading:  const Icon(CupertinoIcons.rectangle_stack_person_crop),
-            title: Text(
-              "User Parking History",
-              style: GoogleFonts.poppins(),
-            ),
-            onTap: (){
-              Navigator.pushNamed(context, UserParkingHistory.id);
-            },
-          ),
-          ListTile(
-            leading: const Icon(CupertinoIcons.settings),
-            title: Text(
-              'Settings',
-              style: GoogleFonts.poppins(),
-            ),
-            onTap: () {
-              Navigator.pushNamed(context, UserSettings.id);
-            },
-          ),
-          const SB3(),
+          const SB5(h: 100,),
           ListTile(
             leading: const Icon(CupertinoIcons.arrow_left_circle_fill),
             title: Text(

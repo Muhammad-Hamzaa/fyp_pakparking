@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pak_parking/Components/constant_colors.dart';
+import 'package:pak_parking/Main_Application/Login_Signup/login_screen.dart';
 
-import '../../Components/drawer_view.dart';
+import '../../Components/user_drawer_view.dart';
 import '../../Components/reusable_components.dart';
 import '../../Components/reusable_history_components.dart';
 
@@ -37,7 +38,9 @@ class _UserParkingHistoryState extends State<UserParkingHistory> {
         centerTitle: true,
 
       ),
-      drawer: DrawerView(onPress: () {},
+      drawer: UserDrawerView(onPress: () {
+        Navigator.pushNamed(context, LoginScreen.id);
+      },
       child: ListView(),),
 
       body: SingleChildScrollView(

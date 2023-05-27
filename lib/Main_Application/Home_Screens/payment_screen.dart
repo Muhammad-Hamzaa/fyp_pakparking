@@ -5,9 +5,10 @@ import 'package:pak_parking/Main_Application/Home_Screens/payment_options/cash_p
 import 'package:pak_parking/Main_Application/Home_Screens/payment_options/credit_card.dart';
 import 'package:pak_parking/Main_Application/Home_Screens/payment_options/easypaisa_jazzcash.dart';
 import 'package:pak_parking/Main_Application/Home_Screens/payment_options/google_pay.dart';
+import 'package:pak_parking/Main_Application/Login_Signup/login_screen.dart';
 
 import '../../Components/constant_colors.dart';
-import '../../Components/drawer_view.dart';
+import '../../Components/user_drawer_view.dart';
 import '../../Components/reusable_components.dart';
 
 class PaymentScreen extends StatefulWidget {
@@ -46,7 +47,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
         elevation: 0,
       ),
 
-      drawer: DrawerView(onPress: () {},
+      drawer: UserDrawerView(onPress: () {
+        Navigator.pushNamed(context, LoginScreen.id);
+      },
         child: ListView(),),
 
       body: SingleChildScrollView(

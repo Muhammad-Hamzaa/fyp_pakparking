@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../Components/constant_colors.dart';
 
 class UpdateFees extends StatefulWidget {
+  static const String id = 'update_fees';
   const UpdateFees({Key? key}) : super(key: key);
 
   @override
