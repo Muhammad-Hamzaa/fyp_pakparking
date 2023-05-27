@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 640),
       builder: (context , child)=> MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Pak Parking',
+        title: 'Pak Parking1',
         theme: ThemeData(primarySwatch: Colors.green),
         initialRoute: SplashScreen.id, //initialRoute means the first page of your app
 
