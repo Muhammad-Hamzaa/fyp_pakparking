@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../Components/constant_colors.dart';
 
 class DeleteParkingSpot extends StatefulWidget {
+  static const String id = 'delete_parking_spot';
   const DeleteParkingSpot({Key? key}) : super(key: key);
 
   @override

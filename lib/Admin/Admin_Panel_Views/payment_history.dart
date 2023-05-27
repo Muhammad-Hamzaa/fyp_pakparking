@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../Components/constant_colors.dart';
 
 class PaymentHistory extends StatefulWidget {
+  static const String id = 'payment_history';
   const PaymentHistory({Key? key}) : super(key: key);
 
   @override

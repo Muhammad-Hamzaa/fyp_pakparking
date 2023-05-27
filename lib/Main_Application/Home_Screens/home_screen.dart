@@ -1,7 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pak_parking/Components/drawer_view.dart';
+import 'package:pak_parking/Components/user_drawer_view.dart';
 import 'package:pak_parking/Main_Application/Home_Screens/home_pg.dart';
 import 'package:pak_parking/Main_Application/Home_Screens/payment_screen.dart';
 import 'package:pak_parking/User/user_profile.dart';
@@ -81,7 +81,7 @@ final items = const [
             //other params
           ),
 
-          drawer: DrawerView(onPress: () {
+          drawer: UserDrawerView(onPress: () {
             Navigator.pushNamed(context, LoginScreen.id);
           },
           child: ListView(),),

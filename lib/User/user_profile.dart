@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pak_parking/Components/reusable_components.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../Components/constant_colors.dart';
-import '../Components/drawer_view.dart';
+import '../Components/user_drawer_view.dart';
 import '../Main_Application/Login_Signup/login_screen.dart';
 
 class UserProfile extends StatefulWidget {
@@ -40,7 +40,7 @@ class _UserProfileState extends State<UserProfile> {
           title:  Text("User Profile", style: TextStyle(color: AppColors().black),),elevation: 0,
           centerTitle: true,
         ),
-        drawer: DrawerView(onPress: () {
+        drawer: UserDrawerView(onPress: () {
           Navigator.pushNamed(context, LoginScreen.id);
 
         },

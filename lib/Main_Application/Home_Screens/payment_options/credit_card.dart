@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Components/constant_colors.dart';
-import '../../../Components/drawer_view.dart';
+import '../../../Components/user_drawer_view.dart';
 import '../../../Components/payment_textfield.dart';
 import '../../../Components/reusable_components.dart';
 import '../../../Components/text_styles.dart';
