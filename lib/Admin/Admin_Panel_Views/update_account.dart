@@ -20,8 +20,13 @@ class _UpdateAccountState extends State<UpdateAccount> {
         title:  Text("Update Account", style: TextStyle(color: AppColors().black),),elevation: 0,
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text("Update Account"),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+           Center(
+            child: Text("Update Account"),
+          ),
+        ],
       ),
     );
   }
