@@ -81,10 +81,13 @@ final items = const [
             //other params
           ),
 
-          drawer: UserDrawerView(onPress: () {
-            Navigator.pushNamed(context, LoginScreen.id);
+        drawer: UserDrawerView(
+          onPress: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()));
           },
-          child: ListView(),),
+          child: ListView(),
+        ),
 
           body: _pages[_selectedIndex],
       ),
